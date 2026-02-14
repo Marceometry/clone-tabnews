@@ -4,19 +4,26 @@
   "description": "Implementação do tabnews no curso.dev",
   "main": "index.js",
   "scripts": {
+    "predev": "npm run db:start",
     "dev": "next dev",
+    "db:start": "docker compose -f infra/compose.yml up -d",
+    "db:stop": "docker compose -f infra/compose.yml stop",
     "lint": "prettier --check .",
-    "lint:fix": "prettier --write ."
+    "lint:fix": "prettier --write .",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "next": "^13.1.6",
+    "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "jest": "^29.6.2",
     "prettier": "^3.7.4"
   }
 }
